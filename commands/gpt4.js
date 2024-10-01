@@ -23,7 +23,7 @@ module.exports = {
       }
     } catch (error) {
       console.error('Error calling GPT-4 API:', error);
-      sendMessage(senderId, { text: 'Sorry, there was an error processing your request.' }, pageAccessToken);
+      sendMessage(senderId, { text: 'Please Enter Your Valid Question?.' }, pageAccessToken);
     }
   }
 };
