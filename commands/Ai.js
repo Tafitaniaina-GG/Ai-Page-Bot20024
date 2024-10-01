@@ -1,13 +1,13 @@
 const axios = require('axios');
 
 module.exports = {
-  name: 'ai',
+  name: 'Ai',
   description: 'Ask a question to Ai',
   author: 'Nics',
   async execute(senderId, args, pageAccessToken, sendMessage) {
-    const question = args.join("");
+    const prompt = args.join("");
     try {
-      const apiUrl = `https://markdevs-last-api.onrender.com/api/v3/gpt4; paramas: {ask:question}`;
+      const apiUrl = `https://markdevs-last-api.onrender.com/api/v3/gpt4?ask=${encodeURIComponent(prompt)}`;
       const response = await axios.get(apiUrl);
       const text = response.data;
 
@@ -34,4 +34,4 @@ function splitMessageIntoChunks(message, chunkSize) {
     chunks.push(message.slice(i, i + chunkSize));
   }
   return chunks;
-                    }
+}
