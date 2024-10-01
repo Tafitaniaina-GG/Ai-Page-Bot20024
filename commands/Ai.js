@@ -5,9 +5,9 @@ module.exports = {
   description: 'Ask a question to Ai',
   author: 'Nics',
   async execute(senderId, args, pageAccessToken, sendMessage) {
-    const prompt = args.join( );
+    const question = args.join("");
     try {
-      const apiUrl = `https://markdevs-last-api.onrender.com/api/v3/gpt4?ask=${encodeURIComponent(prompt)}`;
+      const apiUrl = `https://markdevs-last-api.onrender.com/api/v3/gpt4; paramas: {ask:question}`;
       const response = await axios.get(apiUrl);
       const text = response.data;
 
